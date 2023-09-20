@@ -11,9 +11,9 @@ import { useRef } from 'react';
 function App() {
 
   const [posts, setPosts] = useState(
-    [{body: 'Javascript is a programming language', id: 1, title: 'Javascript'},
-    {body: 'Javascript is a programming language', id: 1, title: 'Javascript'},
-    {body: 'Javascript is a programming language', id: 1, title: 'Javascript'}]
+    [{body: 'this midnight', id: 1, title: 'Do some coding'},
+    {body: 'one day', id: 1, title: 'Wash the dishes'},
+    {body: 'RIGHT NOW!', id: 1, title: 'Some more coding'}]
   )
 
   const [title, setTitle] = useState('')
@@ -32,7 +32,7 @@ function App() {
     setTitle2(''); // Clear the title2 input
     console.log(NewPost);
   };
- 
+
   return (
     <div className='App'>
       <form>
@@ -40,17 +40,17 @@ function App() {
         onChange = {e => setTitle(e.target.value)}
         value={title}
         type="text"
-        placeholder='Name of Post'
+        placeholder='Name of the Note'
         />
         <MyInput
         onChange = {e => setTitle2(e.target.value)}
         value={title2}
         type="text"
-        placeholder='Description of Post'
+        placeholder='Description of the Note'
         />
-        <MyButton onClick={addNewPost}>Create Post</MyButton>
+        <MyButton onClick={addNewPost}>Create Note</MyButton>
       </form>
-      <PostList posts={posts} title={"List of posts for JS"}/>
+      <PostList posts={posts} title={"List of your personal notes"}/>
     </div>
   );
 }
