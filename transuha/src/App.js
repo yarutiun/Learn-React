@@ -3,24 +3,25 @@ import ClassCounter from './components/ClassCounter';
 import Counter from './components/counter';
 import '../src/styles/app.css'
 import PostItem from './components/postitem';
+import PostList from './components/PostList';
 
 function App() {
 
+  const [posts, setPosts] = useState(
+    [{body: 'Javascript is a programming language', id: 1, title: 'Javascript'},
+    {body: 'Javascript is a programming language', id: 1, title: 'Javascript'},
+    {body: 'Javascript is a programming language', id: 1, title: 'Javascript'}]
+  )
+
+  const [posts2, setPosts2] = useState(
+    [{body: 'Python is a programming language', id: 1, title: 'Python'},
+    {body: 'Python is a programming language', id: 1, title: 'Python'},
+    {body: 'Python is a programming language', id: 1, title: 'Python'}]
+  )
   return (
     <div className='App'>
-      {/* <div className='post'>
-        <div className='post-content'>
-          <strong>1, Javascript</strong>
-          <div>Javascript - a programming language</div>
-        </div>
-        <div className='post-btns'>
-          <button>Delete</button>
-        </div>
-      </div> */}
-    <PostItem />
-    <PostItem />
-    <PostItem />
-    <PostItem />
+      <PostList posts={posts} title={"List of posts for JS"}/>
+      <PostList posts={posts2} title={"List of posts for Python"}/>
     </div>
   );
 }
