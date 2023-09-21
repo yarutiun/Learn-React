@@ -12,13 +12,17 @@ function App() {
 
   const [posts, setPosts] = useState(
     [{body: 'this midnight', id: 1, title: 'Do some coding'},
-    {body: 'one day', id: 1, title: 'Wash the dishes'},
-    {body: 'RIGHT NOW!', id: 1, title: 'Some more coding'}]
+    {body: 'one day', id: 2, title: 'Wash the dishes'},
+    {body: 'RIGHT NOW!', id: 3, title: 'Some more coding'}]
   )
 
   const [title, setTitle] = useState('')
   const [title2, setTitle2] = useState('')
   
+  const deletePost = (post) => {
+    // Filter out the post with the given id
+    setPosts(posts.filter(p => p.id !== post.id));
+  };
 
   const addNewPost = (e) => {
     e.preventDefault();
@@ -32,6 +36,8 @@ function App() {
     setTitle2(''); // Clear the title2 input
     console.log(NewPost);
   };
+
+
 
   return (
     <div className='App'>
@@ -50,7 +56,7 @@ function App() {
         />
         <MyButton onClick={addNewPost}>Create Note</MyButton>
       </form>
-      <PostList posts={posts} title={"List of your personal notes"}/>
+      <PostList remove={deletePost} posts={posts} title={"List of your personal notes"}/>
     </div>
   );
 }
