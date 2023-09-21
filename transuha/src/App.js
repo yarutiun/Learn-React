@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ClassCounter from './components/ClassCounter';
 import Counter from './components/counter';
 import '../src/styles/app.css'
+import classes from './styles/app.css'
 import PostItem from './components/postitem';
 import PostList from './components/PostList';
 import MyButton from './components/UI/Button/MyButton';
@@ -56,7 +57,11 @@ function App() {
         />
         <MyButton onClick={addNewPost}>Create Note</MyButton>
       </form>
-      <PostList remove={deletePost} posts={posts} title={"List of your personal notes"}/>
+      {posts.length !== 0 ? (
+      <PostList remove={deletePost} posts={posts} title={"List of your personal notes"} />
+    ) : (
+      <h1 style={{textAlign: 'center', color: 'teal', marginTop: '200px'}}>There are no posts</h1>
+    )}
     </div>
   );
 }
