@@ -1,14 +1,5 @@
 import React from "react";
 import classes from "./UI/Button/MyButton.module.css"
-// const deletePost = ({posts}) => 
-// {
-//     posts.number = 0;
-//     return(
-//         <div>
-            
-//         </div>
-//     )
-// }
 
 const PostItem = (props) => {
     return (
